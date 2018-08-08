@@ -1,4 +1,16 @@
 
+console.log("Hellow world");
+
+var greeting=null;
+
+var a = 1;
+var b = "1";
+var c = "3";
+console.log(a===b);
+console.log(greeting);
+console.log(greeting   ==   null);
+
+
 alert(1+1);
 결과 : 2
 
@@ -29,5 +41,4 @@ alert(1=='1');              //true
 alert(1==='1');             //false
 
 
-
-
+*/

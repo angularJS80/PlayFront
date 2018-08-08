@@ -1,9 +1,14 @@
 
 // Api 호출항수 From By button
 function getSuccessOutput() {
-    $.ajax({
-        url:'http://localhost:8080/demo/test/getUserList',
+    alert("ajax 실행직전");
+    $.ajax(
+        {
+        url:'https://httpbin.org/get',
         complete: function (response) {
+
+
+            console.log(response.responseText);
             var rtnJson = JSON.parse(response.responseText);
             setJson(rtnJson.rtnList);
             setDataTables(rtnJson.rtnList);
@@ -12,9 +17,39 @@ function getSuccessOutput() {
         error: function () {
             $('#output').html('Bummer: there was an error!');
         },
-    });
+    }
+    );
+
     return false;
 }
+
+httpDef =  {
+    url:'https://httpbin.org/get',
+    complete: function (response) {
+
+
+        console.log(response.responseText);
+        var rtnJson = JSON.parse(response.responseText);
+        setJson(rtnJson.rtnList);
+        setDataTables(rtnJson.rtnList);
+
+    },
+    error: function () {
+        $('#output').html('Bummer: there was an error!');
+    },
+};
+
+ajax(httpDef);
+
+function ajax(httpDef){
+    
+    result = httpCall ( ttpDef.url);
+    if(result){
+        httpDef.complete();
+    }
+
+}
+
 
 // Json 데이터 화면에 표현 Call by getSuccessOutput(Use BootStrap Tables Lib)
 function setDataTables(jsonListData){
@@ -31,23 +66,6 @@ function setDataTables(jsonListData){
         }
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Json 데이터 화면에 Append Call By getSuccessOutput
 function setJson(jsonListData) {

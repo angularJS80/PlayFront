@@ -42,3 +42,15 @@ da(ouput,pp);
 console.log(pp[ramdomchoose]);
 
 
+var tetJson = {};
+console.log(tetJson);
+console.log(function(){});
+var fn = function () {
+
+}
+console.log(fn);
+
+
+
+
+
